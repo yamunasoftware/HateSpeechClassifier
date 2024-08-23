@@ -1,7 +1,7 @@
 # Hate Speech Classifier
 
 ## Authors
-Sirash Phuyal, Sushen Kolakaleti, Sam Macy
+Sirash Phuyal, Sushen Kolakaleti, Sam Macy <br />
 phuyals2@vt.edu, sushenk21@vt.edu, sammacy@vt.edu
 
 ## Organization
