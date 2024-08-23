@@ -58,7 +58,7 @@ for i in data:
 training, testing, y_train, y_test = train_test_split(text, labels, test_size=0.2)
 
 # Loads the Vectors from File:
-glove_file_path = 'glove.6B.50d.txt'
+glove_file_path = 'glove.6B.25d.txt'
 glove_embeddings_index = load_glove_vectors(glove_file_path)
 
 # Gets the Average of the Vectors and Transforms Data:
@@ -74,6 +74,6 @@ x_testing_shifted = x_testing - np.min(x_testing)
 NBmodel = MultinomialNB()
 NBmodel.fit(x_training_shifted, y_train)
 
-# Print Testing and Training Accuracies: 
+# Print Testing and Training Accuracies:
 print("Training accuracy: " + str(NBmodel.score(x_training_shifted, y_train)))
 print("Testing accuracy: " + str(NBmodel.score(x_testing_shifted, y_test)))
