@@ -1,20 +1,11 @@
 ### GLOVE CLASSIFICATION IMPORTS ###
 
-# Plotting and Standard Imports:
-from mpl_toolkits.mplot3d import Axes3D
-from sklearn.preprocessing import StandardScaler
-import matplotlib.pyplot as plt
-import numpy as np
-import os
-import pandas as pd
-import json
-
-# Vectorization and Naive Bayes Imports:
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score, f1_score, confusion_matrix
-from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
+import numpy as np
+import json
+import re
+import string
 
 ### GLOVE CLASSIFICATION FUNCTIONS ###
 
@@ -45,17 +36,24 @@ f = open('MMHS150K_GT.json')
 
 # Loads Data Into Lists and Dictionaries:
 data = json.load(f)
-text = []
+texts = []
 labels = []
 
 # Gets Labels and Text Data:
 f.close()
 for i in data:
-  text.append(data[i]["tweet_text"].split("https://")[0])
-  labels.append(data[i]["labels_str"][0])
+  text = data[i]["tweet_text"].split("https://")[0]
+  text = text.lower()
+  mentions = r'@[^ ]'
+  text = re.sub(mentions, '', text)
+  text = text.translate(str.maketrans('','', string.punctuation))
+  texts.append(text)
+
+  label = data[i]["labels_str"][0]
+  labels.append(label)
 
 # Splits the Training and Test Data:
-training, testing, y_train, y_test = train_test_split(text, labels, test_size=0.2)
+training, testing, y_train, y_test = train_test_split(texts, labels, test_size=0.2)
 
 # Loads the Vectors from File:
 glove_file_path = 'glove.6B.25d.txt'

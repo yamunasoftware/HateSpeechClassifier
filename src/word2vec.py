@@ -1,18 +1,7 @@
 ### WORD2VEC CLASSIFICATION IMPORTS ###
 
-# Plotting and Standard Imports:
-from mpl_toolkits.mplot3d import Axes3D
-from sklearn.preprocessing import StandardScaler
-import matplotlib.pyplot as plt
-import numpy as np
-import os
-import pandas as pd
-
-# Vectorization and Naive Bayes Imports:
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score, f1_score, confusion_matrix
-from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 import json
 import re
