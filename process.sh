@@ -7,7 +7,7 @@ cd src
 # Glove Analysis:
 echo "GloVe Analysis:"
 echo "Started."
-python glove.py
+python -B glove.py
 echo "Duration: $SECONDS seconds"
 
 # Formatting:
@@ -17,7 +17,7 @@ SECONDS=0
 # Word2Vec Analysis:
 echo "Word2Vec Analysis:"
 echo "Started."
-python word2vec.py
+python -B word2vec.py
 echo "Duration: $SECONDS seconds"
 
 # Formatting:
@@ -27,5 +27,5 @@ SECONDS=0
 # BERT Analysis:
 echo "BERT Analysis:"
 echo "Started."
-python bert.py
+python -B bert.py
 echo "Duration: $SECONDS seconds"

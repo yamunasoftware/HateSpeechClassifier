@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hatespeechclassifier-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hatespeechclassifier
+  template:
+    metadata:
+      labels:
+        app: hatespeechclassifier
+    spec:
+      containers:
+      - name: hatespeechclassifier-container
+        image: hatespeechclassifier
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hatespeechclassifier-service
+spec:
+  selector:
+    app: hatespeechclassifier
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
