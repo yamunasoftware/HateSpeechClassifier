@@ -1,6 +1,6 @@
 # Hate Speech Classifier
 
-Hate Speech Classification Model Research, Using NLP Techniques
+Hate Speech Classification NLP Model Research
 
 ## Authors
 Sirash Phuyal, Sushen Kolakaleti, Sam Macy <br />
